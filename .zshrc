@@ -1,7 +1,8 @@
 #
 # .zshrc
 #
-# @author Jeff Geerling
+# Original @author Jeff Geerling
+# Updated @author David Gilmore
 #
 
 # Colors.
@@ -19,7 +20,7 @@ export PS1=$'\n'"%F{green} %*%F %3~ %F{white}$ "
 plugins=(git brew history kubectl history-substring-search)
 
 # Custom $PATH with extra locations.
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$HOME/Library/Python/3.7/bin:$PATH
 
 # Bash-style time output.
 export TIMEFMT=$'\nreal\t%*E\nuser\t%*U\nsys\t%*S'
@@ -41,6 +42,16 @@ alias gc='git commit'
 alias gp='git pull --rebase'
 alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
+
+# Terraform Aliases
+# TODO
+
+# Vagrant Aliases
+# TODO
+
+# Packer Aliases
+# TODO
+
 
 # Completions.
 autoload -Uz compinit && compinit
@@ -72,7 +83,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=604800
 # Super useful Docker container oneshots.
 # Usage: dockrun, or dockrun [centos7|fedora27|debian9|debian8|ubuntu1404|etc.]
 dockrun() {
- docker run -it geerlingguy/docker-"${1:-ubuntu1604}"-ansible /bin/bash
+ docker run -it geerlingguy/docker-"${1:-ubuntu1804}"-ansible /bin/bash
 }
 
 # Enter a running Docker container.
