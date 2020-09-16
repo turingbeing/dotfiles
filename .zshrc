@@ -44,7 +44,12 @@ alias gcam='git commit -am'
 alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 # Terraform Aliases
-# TODO
+[ -f ~/.terraform_aliases ] && source ~/.terraform_aliases
+
+# Print full terraform command before running it
+function terraform() { 
+  echo "+ terraform $@"; command terraform $@; 
+}
 
 # Vagrant Aliases
 # TODO
