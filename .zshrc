@@ -17,7 +17,7 @@ unsetopt nomatch
 export PS1=$'\n'"%F{green} %*%F %3~ %F{white}$ "
 
 # Enable plugins.
-plugins=(git brew history kubectl history-substring-search)
+plugins=(git brew history terraform vagrant kubectl ansible history-substring-search)
 
 # Custom $PATH with extra locations.
 export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/go/bin:/usr/local/git/bin:$HOME/.composer/vendor/bin:$HOME/Library/Python/3.7/bin:$PATH
@@ -49,7 +49,15 @@ alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %
 # Print full terraform command before running it
 function terraform() { 
   echo "+ terraform $@"; command terraform $@; 
-}
+  }
+
+# Kubectl Aliases
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
+# Print full Kubectl Command nefore running it
+function kubectl() { 
+  echo "+ kubectl $@">&2; command kubectl $@; 
+  }
 
 # Vagrant Aliases
 # TODO
